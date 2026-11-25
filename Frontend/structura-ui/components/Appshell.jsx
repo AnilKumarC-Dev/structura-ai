@@ -7,9 +7,9 @@ export default function Appshell({ children }) {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <Link href="/" className="app-brand" aria-label="StructureAI home">
+        <Link href="/" className="app-brand" aria-label="StructuraAI home">
           <span>
-            Structure<span className="app-brand-ai">AI</span>
+            Structura<span className="app-brand-ai">AI</span>
           </span>
           <span className="app-brand-tag">Engineering Knowledge Platform</span>
         </Link>

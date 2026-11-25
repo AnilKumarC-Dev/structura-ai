@@ -1,6 +1,6 @@
 "use client";
 
-const STORAGE_KEY = "structureai-theme";
+const STORAGE_KEY = "structuraai-theme";
 
 export default function ThemeToggle() {
   const toggle = () => {

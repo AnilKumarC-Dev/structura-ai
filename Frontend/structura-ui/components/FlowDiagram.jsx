@@ -130,11 +130,11 @@ function Connector({ flowing, done }) {
   );
 }
 
-function Flow({ title, subtitle, steps, startDelay }) {
+function Flow({ title, subtitle, steps, startDelay, tone }) {
   const active = useFlowStep(steps.length, startDelay);
 
   return (
-    <section className="ekf-flow" data-cols={steps.length}>
+    <section className="ekf-flow" data-cols={steps.length} data-tone={tone}>
       <div>
         <h2 className="ekf-flow-title">{title}</h2>
         <p className="ekf-flow-sub">{subtitle}</p>
@@ -178,10 +178,12 @@ export default function FlowDiagram() {
           gap: 14px;
           overflow-y: auto;
           overflow-x: hidden;
+          padding: 6px 12px 28px;
+          margin: 0 -12px;
         }
         .ekf-flow {
           flex: 1 1 0;
-          background: var(--surface);
+          background: var(--grad-blue);
           border: 1px solid var(--border);
           box-shadow: var(--shadow);
           border-radius: 16px;
@@ -189,7 +191,10 @@ export default function FlowDiagram() {
           display: flex;
           flex-direction: column;
           gap: 10px;
+          transition: box-shadow 0.25s, transform 0.25s;
         }
+        .ekf-flow:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .ekf-flow[data-tone="silver"] { background: var(--grad-silver); }
         .ekf-flow-title { font-size: 16px; font-weight: 600; margin-bottom: 2px; overflow-wrap: anywhere; }
         .ekf-flow-sub { font-size: 12.5px; color: var(--muted); }
 
@@ -200,7 +205,7 @@ export default function FlowDiagram() {
           flex: 1;
           min-width: 0;
           border: 1px solid var(--border);
-          background: var(--surface-2);
+          background: var(--tile);
           border-radius: 12px;
           padding: 12px 10px;
           display: flex;
@@ -210,6 +215,7 @@ export default function FlowDiagram() {
           text-align: center;
           gap: 3px;
           opacity: 0.6;
+          box-shadow: var(--shadow-sm);
           transition: border-color 0.4s, background 0.4s, opacity 0.4s;
         }
         .ekf-card.ekf-compact { padding: 8px 10px; }
@@ -274,7 +280,7 @@ export default function FlowDiagram() {
         @keyframes ekf-travel { from { left: 0; } to { left: calc(100% - 8px); } }
         @keyframes ekf-travel-v { from { top: 0; } to { top: calc(100% - 8px); } }
         @keyframes ekf-pulse {
-          0%, 100% { box-shadow: 0 0 0 0 transparent; }
+          0%, 100% { box-shadow: var(--shadow-sm); }
           50% { box-shadow: 0 0 14px 2px color-mix(in srgb, var(--primary) 40%, transparent); }
         }
 
@@ -315,6 +321,7 @@ export default function FlowDiagram() {
           subtitle="Your question is matched to the most relevant knowledge, then turned into a clear answer."
           steps={QUERY}
           startDelay={750}
+          tone="silver"
         />
       </div>
     </>
