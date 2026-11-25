@@ -26,7 +26,7 @@ const COMING_SOON = [
 const STATUS_STYLES = {
   uploading: { color: "var(--warning)", text: "Uploading…" },
   uploaded: { color: "var(--success)", text: "Uploaded" },
-  failed: { color: "var(--primary)", text: "Failed" },
+  failed: { color: "var(--danger)", text: "Failed" },
 };
 
 const card = {
@@ -40,7 +40,7 @@ const primaryButton = {
   padding: "12px 24px",
   borderRadius: "12px",
   border: "none",
-  background: "var(--primary)",
+  background: "var(--grad-primary)",
   color: "var(--on-primary)",
   fontWeight: 600,
   cursor: "pointer",
@@ -167,6 +167,7 @@ export default function UploadCenter() {
           <div
             style={{
               ...card,
+              background: "var(--grad-blue)",
               width: "320px",
               padding: "20px",
               display: "flex",
@@ -199,7 +200,8 @@ export default function UploadCenter() {
                     title={job.error || job.name}
                     style={{
                       border: "1px solid var(--border)",
-                      background: "var(--surface-2)",
+                      background: "var(--tile)",
+                      boxShadow: "var(--shadow-sm)",
                       borderRadius: "10px",
                       padding: "10px 12px",
                       fontSize: "13px",
@@ -246,7 +248,7 @@ export default function UploadCenter() {
               minHeight: 0,
             }}
           >
-            <div style={{ ...card, padding: "16px" }}>
+            <div style={{ ...card, background: "var(--grad-silver)", padding: "16px" }}>
               <h2 style={{ marginBottom: "12px" }}>Select Knowledge Source</h2>
 
               <div
@@ -265,7 +267,8 @@ export default function UploadCenter() {
                       style={{
                         padding: "10px",
                         border: `1px solid ${active ? "var(--primary)" : "var(--border-strong)"}`,
-                        background: active ? "var(--primary-soft)" : "var(--surface-2)",
+                        background: active ? "var(--primary-soft)" : "var(--tile)",
+                        boxShadow: "var(--shadow-sm)",
                         borderRadius: "12px",
                         textAlign: "center",
                         cursor: "pointer",
@@ -283,7 +286,8 @@ export default function UploadCenter() {
                     style={{
                       padding: "10px",
                       border: "1px solid var(--border)",
-                      background: "var(--surface-2)",
+                      background: "var(--tile)",
+                      boxShadow: "var(--shadow-sm)",
                       borderRadius: "12px",
                       textAlign: "center",
                       opacity: 0.5,
@@ -300,6 +304,7 @@ export default function UploadCenter() {
             <div
               style={{
                 ...card,
+                background: "var(--grad-slate)",
                 padding: "20px",
                 flex: 1,
                 minHeight: 0,
@@ -341,7 +346,7 @@ export default function UploadCenter() {
                 {message && (
                   <div
                     style={{
-                      color: message.error ? "var(--primary)" : "var(--success)",
+                      color: message.error ? "var(--danger)" : "var(--success)",
                       fontSize: "13px",
                       textAlign: "center",
                       padding: "0 16px",

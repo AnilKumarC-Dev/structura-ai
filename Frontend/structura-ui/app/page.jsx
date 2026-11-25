@@ -20,7 +20,7 @@ export default function Home() {
             marginBottom: "6px",
           }}
         >
-          Welcome to Structure<span style={{ color: "var(--primary)" }}>AI</span>
+          Welcome to Structura<span style={{ color: "var(--primary)" }}>AI</span>
         </h1>
 
         <p
